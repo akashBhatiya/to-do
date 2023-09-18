@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List App</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="/responsive.css">
+    <script src="https://kit.fontawesome.com/05d1f8d0ed.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+    <main>
+
+        <div class="app">
+            <div class="header">
+                <h1 id="heading">ToDo App</h1>
+                <form action="/add-task" method="POST">
+                    <input type="text"  name="taskContent" id="task-content" placeholder="Enter the content of the task">
+                    <div class="btn-container">
+                        <select id="taskType" name="taskType" class="btn">
+                            <option value="none" selected disabled>Task Type</option>
+                            <option value="other">Other</option>
+                            <option value="office">Office</option>
+                            <option value="home">Home</option>
+                            <option value="personal">Personal</option>
+                        </select>
+                        <input type="text" id="date" name="taskDueDate" class="btn" placeholder="Due Date" onfocus="(this.type='date')">
+                    </div>
+                    <div class="button-container">
+                        <button type="submit" class="btn button">Add Task</button>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="tasks">
+                <ul>
+                    <li class="index">
+                        <input type="checkbox" class="li-checkbox" style="visibility: hidden;">
+                        <div class="li-task-content" style="color:#ddd; font-weight:600"> Task content</div>
+                        <div class="li-task-type" style="color:#ddd; font-weight:600">Task Type</div>
+                        <div class="li-task-duedate" style="color:#ddd; font-weight:600">Due Date</div>
+                        <div class="li-task-delete" ></div>
+                    </li>
+
+                    <% for (let i of tasks) { %>
+                        <li class="li-task-container">
+                            <input type="checkbox" class="li-checkbox" <% if (i.completed) { %>checked<% } %> onchange="updateTaskStatus('<%= i._id %>')" >
+                            <div class="li-task-content"><%= i.taskName %></div>
+                            <div class="li-task-type"><%= i.taskType %></div>
+                            <div class="li-task-duedate"><%= i.taskDueDate %></div>
+                            <div class="li-task-delete"><a href="/delete-task/?id=<%= i._id %>"><i class="fa-solid fa-trash"></i></a></div>
+                        </li>
+                    <% } %>
+                    
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="/script.js"></script>
+</body>
+</html>

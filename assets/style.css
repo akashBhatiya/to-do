@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: boreder-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    width: 100vw;
+}
+
+main{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(120deg, rgba(172,46,118,1) 10%, rgba(242,110,37,1) 78%); 
+    /* background: linear-gradient(120deg, #222 10%, #333 78%);  */
+    /* background: linear-gradient(120deg, rgba(53,172,46,1) 21%, rgba(93,242,37,1) 89%); */
+}   
+
+a{
+    color:white;
+}
+
+.app{
+    width: 80%;
+    height: 90%;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.244);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+#heading{
+    color: white;
+    padding: 5px 0;
+    border-bottom: 1px solid white;
+    width: 200px;
+    position:relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+form{
+    margin: 20px;
+}
+
+
+#task-content{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+    font-size: 1.2rem;
+    padding: 5px;
+    font-weight: 300;
+    width: 40%;
+    min-width: 300px;
+}
+
+
+form > input:focus , select:focus{
+    outline: none;
+}
+
+#task-content:focus{
+    border-bottom: 2px solid white;
+}
+
+#task-content::placeholder{
+    color: white;
+}
+.btn-container{
+    display: inline-block;
+}
+
+.btn{
+    height: 45px;
+    width: 140px;
+    /* padding: 0 5px; */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.btn:hover{
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.btn::placeholder{
+    text-align: center;
+    color: white;
+}
+
+.button-container{
+    margin: 10px 0;
+}
+
+input::-webkit-calendar-picker-indicator {
+    background: url("https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/calendar-16.png") center/80% no-repeat;
+    color: white;
+}
+
+select {
+    text-align: center;
+    appearance: none; /* Removes default appearance (webkit browsers) */
+    -moz-appearance: none; /* Removes default appearance (Firefox) */
+}
+
+select::-ms-expand {
+    display: none; /* Removes default arrow icon (Internet Explorer) */
+}
+
+select option {
+    color:black;
+}
+
+form input, select, button{
+    margin: 0 10px;
+}
+
+button{
+    font-weight: 800;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.header{
+    margin: 0 auto;
+    border-bottom: 1px solid white;
+    width: 98%;
+
+}
+
+.tasks{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    padding: 10px;
+    height: 60%;
+    overflow-y: scroll;
+}
+
+.tasks::-webkit-scrollbar {
+    width: 6px;
+}
+  
+.tasks:hover::-webkit-scrollbar-thumb{
+    background-color:#ddd;
+}
+
+ul{
+    list-style: none;
+    margin: 20px 0;
+}
+li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    color: white;
+    margin: 10px 0;
+    padding:0 10px;
+    border-radius: 5px;
+    min-height:30px;
+}
+
+.li-task-container:hover{
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.li-task-content{
+    /* background-color: red; */
+    width: 50%;
+    text-align: left;
+}
+
+.li-task-type{
+    width: 120px;
+    /* background-color: yellow; */
+}
+
+.li-task-duedate{
+    width: 120px;
+    /* background-color: blue; */
+}
+
+.li-task-delete{
+    width: 1rem;
+    opacity:0;
+    /* background-color: green; */
+}
+
+li:hover > .li-task-delete{
+    opacity: 1;
+}
+
+li input:checked ~ div{
+    text-decoration: line-through;
+    color:#ddd;
+}
